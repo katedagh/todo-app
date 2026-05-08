@@ -11,6 +11,7 @@
 
 body {
     background-color: var(--background);
+    font-family: "Cause", cursive;
 }
 
 main {
@@ -20,7 +21,6 @@ main {
 }
 
 h1 {
-    font-family: "Cause", cursive;
     color: var(--dark);
     font-size: 3rem;
 }
@@ -50,4 +50,15 @@ h1 {
 
 .btn:hover {
     background-color: var(--btn-hover);
+}
+
+#todo-list {
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--dark);
 }
