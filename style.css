@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark: #242025;
+    --btn: #7c6884;
+    --btn-hover: #615167;
+    --background: #e4cfed;
+}
+
+body {
+    background-color: var(--background);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Cause", cursive;
+    color: var(--dark);
+    font-size: 3rem;
+}
+
+#todo-form {
+    width: 100%;
+    margin-left: 50px;
+}
+
+.todo-input {
+    padding: 5px 10px;
+    width: 75%;
+    font-size: 1.2rem;
+    color: var(--dark);
+    border: none;
+    border-radius: 50px;
+}
+
+.btn {
+    padding: 7px 10px;
+    color: #fff;
+    font-size: 1.1rem;
+    background-color: var(--btn);
+    border: none;
+    border-radius: 50px;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+}
