@@ -8,4 +8,6 @@ form.addEventListener("submit", event => {
 
     const toDoList = document.querySelector("#todo-list")
     toDoList.appendChild(task)
+
+    event.target.elements.todo.value = ""
 })
