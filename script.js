@@ -1,7 +1,7 @@
 const form = document.querySelector("#todo-form")
 const toDoList = document.querySelector("#todo-list")
 
-let toDoItems = []
+let toDoItems =  JSON.parse(localStorage.getItem("items")) || []
 
 //Show items from LS on page after reload
 if (localStorage.getItem("items") !== null) {
