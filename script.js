@@ -3,6 +3,20 @@ const toDoList = document.querySelector("#todo-list")
 
 let toDoItems = []
 
+//Show items from LS on page after reload
+if (localStorage.getItem("items") !== null) {
+    let itemsLS = localStorage.getItem("items")
+    let itemsLSparse = JSON.parse(itemsLS)
+     itemsLSparse.forEach(item => {
+        const task = document.createElement("p")
+        task.textContent = item.toDo
+      toDoList.appendChild(task)
+     })
+} else {
+    console.log("Nothing saved in local storage")
+}
+
+//submit event
 form.addEventListener("submit", event => {
     event.preventDefault()
 
