@@ -5,13 +5,14 @@ let toDoItems =  JSON.parse(localStorage.getItem("items")) || []
 
 //Show items from LS on page after reload
 if (localStorage.getItem("items") !== null) {
-    let itemsLS = localStorage.getItem("items")
-    let itemsLSparse = JSON.parse(itemsLS)
-     itemsLSparse.forEach(item => {
+   
+    let itemsLS = JSON.parse(localStorage.getItem("items"))
+    itemsLS.forEach(item => {
         const task = document.createElement("p")
         task.textContent = item.toDo
-      toDoList.appendChild(task)
+        toDoList.appendChild(task)
      })
+
 } else {
     console.log("Nothing saved in local storage")
 }
@@ -35,14 +36,12 @@ form.addEventListener("submit", event => {
         //save items to local storage and get them out
         toDoItemsJSON = JSON.stringify(toDoItems)
         localStorage.setItem("items", toDoItemsJSON)
-        let toDoItemsFromLS = localStorage.getItem("items")
-        let toDOItemsForList = JSON.parse(toDoItemsFromLS)
+        let toDOItemsLS = JSON.parse(localStorage.getItem("items"))
     
          //create paragraph and add text to page
         let task = document.createElement("p")
-        task.textContent =  toDOItemsForList[toDOItemsForList.length - 1].toDo
+        task.textContent =  toDOItemsLS[toDOItemsLS.length - 1].toDo
         toDoList.appendChild(task)
-
     }
 
     //clear input
