@@ -8,14 +8,15 @@ if (localStorage.getItem("items") !== null) {
    
     let itemsLS = JSON.parse(localStorage.getItem("items"))
     itemsLS.forEach(item => {
-        const task = document.createElement("p")
-        task.textContent = item.toDo
-        toDoList.appendChild(task)
+        
+        addHTMLstructure(item)
+
      })
 
 } else {
     console.log("Nothing saved in local storage")
 }
+
 
 //submit event
 form.addEventListener("submit", event => {
@@ -34,14 +35,12 @@ form.addEventListener("submit", event => {
         })
 
         //save items to local storage and get them out
-        toDoItemsJSON = JSON.stringify(toDoItems)
-        localStorage.setItem("items", toDoItemsJSON)
-        let toDOItemsLS = JSON.parse(localStorage.getItem("items"))
+        item = JSON.stringify(toDoItems)
+        localStorage.setItem("items", item)
+        let itemsLS = JSON.parse(localStorage.getItem("items"))
     
          //create paragraph and add text to page
-        let task = document.createElement("p")
-        task.textContent =  toDOItemsLS[toDOItemsLS.length - 1].toDo
-        toDoList.appendChild(task)
+        addHTMLstructure(item)
     }
 
     //clear input
