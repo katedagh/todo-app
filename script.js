@@ -29,7 +29,7 @@ form.addEventListener("submit", event => {
 
         //push input text to object in array
         toDoItems.push({
-            id: "",
+            id: uuidv4(),
             toDo: event.target.elements.todo.value.trim(),
             completion: false,
         })
