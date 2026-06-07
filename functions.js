@@ -16,6 +16,12 @@ const addHTMLstructure = (item) => {
         const container = document.createElement("div")
         container.classList.add("task-container")
         
+        const rightSide = document.createElement("div")
+        rightSide.classList.add("task-container-right")
+        
+        const checkbox = document.createElement("input")
+        checkbox.setAttribute("type", "checkbox")
+
         const removebtn = document.createElement("button")
         removebtn.textContent = "remove"
         removebtn.classList.add("btn")
@@ -34,6 +40,8 @@ const addHTMLstructure = (item) => {
         task.textContent = item.toDo
         
         container.appendChild(task)
-        container.appendChild(removebtn)
+        container.appendChild(rightSide)
+        rightSide.appendChild(checkbox)
+        rightSide.appendChild(removebtn)
         toDoList.appendChild(container)
         }

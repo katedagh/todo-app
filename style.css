@@ -60,6 +60,7 @@ input[type="submit"] {
 
 .btn:hover {
     background-color: var(--btn-hover);
+    cursor: pointer;
 }
 
 .btn:active {
@@ -80,4 +81,18 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.task-container-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+input[type="checkbox"]:hover {
+    cursor: pointer;
 }
