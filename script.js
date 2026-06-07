@@ -35,8 +35,7 @@ form.addEventListener("submit", event => {
         })
 
         //save items to local storage and get them out
-        toDoItemsJSON = JSON.stringify(toDoItems)
-        localStorage.setItem("items", toDoItemsJSON)
+        saveToLocalStorage()
         let toDOItemsLS = JSON.parse(localStorage.getItem("items"))
     
          //create paragraph and add text to page
