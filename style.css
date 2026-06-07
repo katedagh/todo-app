@@ -46,10 +46,13 @@ h1 {
     border-radius: 50px;
 }
 
+input[type="submit"] {
+    font-size: 1.1rem;
+}
+
 .btn {
     padding: 6px 12px;
     color: #fff;
-    font-size: 1.1rem;
     background-color: var(--btn);
     border: none;
     border-radius: 50px;
@@ -71,4 +74,10 @@ h1 {
 p {
     font-size: 1.2rem;
     color: var(--dark);
+}
+
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

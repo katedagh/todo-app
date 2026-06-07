@@ -14,9 +14,11 @@ const renderTask = () => {
 
 const addHTMLstructure = (item) => {
         const container = document.createElement("div")
+        container.classList.add("task-container")
         
         const removebtn = document.createElement("button")
         removebtn.textContent = "remove"
+        removebtn.classList.add("btn")
         //addeventlistener function for button to remove item here
         removebtn.addEventListener("click", event => {
             const index = toDoItems.findIndex(task => {
