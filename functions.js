@@ -5,11 +5,9 @@ const saveToLocalStorage = () => {
 
 const renderTask = () => {
      toDoList.innerHTML = ""
-     let toDOItemsLS = JSON.parse(localStorage.getItem("items"))
-     toDOItemsLS.forEach(item => {
+     toDoItems.forEach(item => {
          addHTMLstructure(item)  
      })
-   
 }
 
 const addHTMLstructure = (item) => {
@@ -20,28 +18,31 @@ const addHTMLstructure = (item) => {
         rightSide.classList.add("task-container-right")
         
         const checkbox = document.createElement("input")
-        checkbox.setAttribute("type", "checkbox")
+        checkbox.type = "checkbox"
 
         const removebtn = document.createElement("button")
         removebtn.textContent = "remove"
         removebtn.classList.add("btn")
-        //addeventlistener function for button to remove item here
+
         removebtn.addEventListener("click", event => {
             const index = toDoItems.findIndex(task => {
                 return task.id === item.id
             })
             toDoItems.splice(index, 1)
-            //update localStorage and HTML
             saveToLocalStorage()
             renderTask()
         })
 
+        const leftSide = document.createElement("div")
+        leftSide.classList.add("task-container-left")
+
         const task = document.createElement("p")
         task.textContent = item.toDo
         
-        container.appendChild(task)
+        container.appendChild(leftSide)
         container.appendChild(rightSide)
-        rightSide.appendChild(checkbox)
+        leftSide.appendChild(checkbox)
+        leftSide.appendChild(task)
         rightSide.appendChild(removebtn)
         toDoList.appendChild(container)
         }

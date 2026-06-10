@@ -3,26 +3,18 @@ const toDoList = document.querySelector("#todo-list")
 
 let toDoItems =  JSON.parse(localStorage.getItem("items")) || []
 
-//Show items from LS on page after reload
-if (localStorage.getItem("items") !== null) {
-   
-    let itemsLS = JSON.parse(localStorage.getItem("items"))
-    itemsLS.forEach(item => {
-        
-        addHTMLstructure(item)
+//Show items from local storage on page after reload
 
-     })
-
-} else {
-    console.log("Nothing saved in local storage")
-}
+   renderTask()
 
 
-//submit event
+//form submit event
 form.addEventListener("submit", event => {
     event.preventDefault()
+    let input = event.target.elements.todo
+    let inputText = input.value.trim()
 
-    if (event.target.elements.todo.value === "") {
+    if (inputText === "") {
        return
 
     } else {
@@ -30,18 +22,16 @@ form.addEventListener("submit", event => {
         //push input text to object in array
         toDoItems.push({
             id: uuidv4(),
-            toDo: event.target.elements.todo.value.trim(),
+            toDo: inputText,
             completion: false,
         })
 
-        //save items to local storage and get them out
+        //save items to local storage and add HTML to page
         saveToLocalStorage()
-        let toDOItemsLS = JSON.parse(localStorage.getItem("items"))
-    
-         //create paragraph and add text to page
-        addHTMLstructure(toDOItemsLS[toDOItemsLS.length - 1])
+        //addHTMLstructure(toDoItems[toDoItems.length - 1])
+        renderTask()
     }
 
     //clear input
-    event.target.elements.todo.value = ""
+    input.value = ""
 })

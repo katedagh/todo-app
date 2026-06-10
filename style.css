@@ -83,7 +83,7 @@ p {
     align-items: center;
 }
 
-.task-container-right {
+.task-container-left {
     display: flex;
     align-items: center;
     gap: 10px;
