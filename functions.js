@@ -13,36 +13,41 @@ const renderTask = () => {
 const addHTMLstructure = (item) => {
         const container = document.createElement("div")
         container.classList.add("task-container")
-        
-        const rightSide = document.createElement("div")
-        rightSide.classList.add("task-container-right")
-        
+            
+        const leftSide = document.createElement("div")
+        leftSide.classList.add("task-container-left")
+
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
 
-        const removebtn = document.createElement("button")
-        removebtn.textContent = "remove"
-        removebtn.classList.add("btn")
+        const task = document.createElement("p")
+        task.textContent = item.toDo
 
-        removebtn.addEventListener("click", event => {
-            const index = toDoItems.findIndex(task => {
-                return task.id === item.id
-            })
+        const rightSide = document.createElement("div")
+        rightSide.classList.add("task-container-right")
+
+        const editBtn = document.createElement("button")
+        editBtn.textContent = "edit"
+        editBtn.classList.add("btn")
+
+        const removeBtn = document.createElement("button")
+        removeBtn.textContent = "remove"
+        removeBtn.classList.add("btn")
+
+        removeBtn.addEventListener("click", event => {
+            const index = toDoItems.findIndex(
+                task => task.id === item.id
+            )
             toDoItems.splice(index, 1)
             saveToLocalStorage()
             renderTask()
         })
-
-        const leftSide = document.createElement("div")
-        leftSide.classList.add("task-container-left")
-
-        const task = document.createElement("p")
-        task.textContent = item.toDo
         
         container.appendChild(leftSide)
         container.appendChild(rightSide)
         leftSide.appendChild(checkbox)
         leftSide.appendChild(task)
-        rightSide.appendChild(removebtn)
+        rightSide.appendChild(editBtn)
+        rightSide.appendChild(removeBtn)
         toDoList.appendChild(container)
         }

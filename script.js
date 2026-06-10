@@ -1,12 +1,11 @@
 const form = document.querySelector("#todo-form")
 const toDoList = document.querySelector("#todo-list")
 
+//create empty array or get data from local storage to render it in the next step
 let toDoItems =  JSON.parse(localStorage.getItem("items")) || []
 
-//Show items from local storage on page after reload
-
-   renderTask()
-
+//show items on the page after reload
+renderTask()
 
 //form submit event
 form.addEventListener("submit", event => {
@@ -18,12 +17,11 @@ form.addEventListener("submit", event => {
        return
 
     } else {
-
         //push input text to object in array
         toDoItems.push({
             id: uuidv4(),
             toDo: inputText,
-            completion: false,
+            isCompleted: false,
         })
 
         //save items to local storage and add HTML to page
