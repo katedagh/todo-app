@@ -5,7 +5,7 @@ const saveToLocalStorage = () => {
 
 const renderTask = () => {
      toDoList.innerHTML = ""
-     toDoItems.forEach(item => {
+     toDoItems.forEach(item => { 
          addHTMLstructure(item)  
      })
 }
@@ -19,9 +19,31 @@ const addHTMLstructure = (item) => {
 
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
+        checkbox.checked = item.isCompleted
+
+        checkbox.addEventListener("change", () => {
+            const index = toDoItems.findIndex(
+                task => task.id === item.id
+            )
+            if (checkbox.checked) {
+                toDoItems[index].isCompleted = true
+                task.classList.add("checked")
+            } else {
+                toDoItems[index].isCompleted = false
+                task.classList.remove("checked")
+            }
+            saveToLocalStorage()
+            renderTask()
+        })
 
         const task = document.createElement("p")
         task.textContent = item.toDo
+
+           if (checkbox.checked) {
+                task.classList.add("checked") }
+            else {
+                task.classList.remove("checked")
+                }
 
         const rightSide = document.createElement("div")
         rightSide.classList.add("task-container-right")
@@ -50,4 +72,5 @@ const addHTMLstructure = (item) => {
         rightSide.appendChild(editBtn)
         rightSide.appendChild(removeBtn)
         toDoList.appendChild(container)
+
         }

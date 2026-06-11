@@ -77,6 +77,11 @@ p {
     color: var(--dark);
 }
 
+.checked {
+    color: rgb(98, 97, 97);
+    text-decoration: line-through;
+}
+
 .task-container {
     display: flex;
     justify-content: space-between;
