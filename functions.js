@@ -10,6 +10,13 @@ const renderTask = () => {
      })
 }
 
+const getIndex = (todo) => {
+ const index = toDoItems.findIndex(
+                task => task.id === todo.id
+            )
+            return index
+}
+
 const addHTMLstructure = (item) => {
         const container = document.createElement("div")
         container.classList.add("task-container")
@@ -22,9 +29,8 @@ const addHTMLstructure = (item) => {
         checkbox.checked = item.isCompleted
 
         checkbox.addEventListener("change", () => {
-            const index = toDoItems.findIndex(
-                task => task.id === item.id
-            )
+            const index = getIndex(item)
+            
             if (checkbox.checked) {
                 toDoItems[index].isCompleted = true
                 task.classList.add("checked")
@@ -57,9 +63,7 @@ const addHTMLstructure = (item) => {
         removeBtn.classList.add("btn")
 
         removeBtn.addEventListener("click", event => {
-            const index = toDoItems.findIndex(
-                task => task.id === item.id
-            )
+            const index = getIndex(item)
             toDoItems.splice(index, 1)
             saveToLocalStorage()
             renderTask()
