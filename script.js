@@ -22,6 +22,7 @@ form.addEventListener("submit", event => {
             id: uuidv4(),
             toDo: inputText,
             isCompleted: false,
+            isBeingEdited: false,
         })
 
         //save items to local storage and add HTML to page
