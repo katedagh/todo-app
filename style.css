@@ -7,7 +7,10 @@
     --btn: #7c6884;
     --btn-hover: #615167;
     --btn-active: #ac8db8;
+    --btn-green:  #4a724e;
+    --btn-red: #74383e;
     --background: #e4cfed;
+    --background-darker: #d0bbd8;
 }
 
 body {
@@ -44,6 +47,7 @@ h1 {
     color: var(--dark);
     border: none;
     border-radius: 50px;
+    outline: none;
 }
 
 input[type="submit"] {
@@ -75,6 +79,7 @@ input[type="submit"] {
 p {
     font-size: 1.2rem;
     color: var(--dark);
+    margin: 0;
 }
 
 .checked {
@@ -86,6 +91,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
 }
 
 .task-container-left,
@@ -101,4 +107,23 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:hover {
     cursor: pointer;
+}
+
+.edit-input {
+    width: 100%;
+    background-color: var(--background-darker);
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    padding-left: 15px;
+      font-family: "Cause", cursive;
+}
+
+.btn-red:hover {
+    background-color: var(--btn-red);
+}
+
+.btn-green:hover {
+    background-color: var(--btn-green);
 }

@@ -100,6 +100,7 @@ const addHTMLstructure = (item) => {
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
         checkbox.checked = item.isCompleted
+       
 
         checkbox.addEventListener("change", () => {
             const index = getIndex(item)
@@ -116,6 +117,7 @@ const addHTMLstructure = (item) => {
         })
 
         const task = document.createElement("input")
+       task.classList.add("edit-input")
        task.type = "text"
        task.value = item.toDo
 
@@ -130,7 +132,7 @@ const addHTMLstructure = (item) => {
 
         const saveBtn = document.createElement("button")
         saveBtn.textContent = "save"
-        saveBtn.classList.add("btn")
+        saveBtn.classList.add("btn", "btn-green")
 
         saveBtn.addEventListener("click", (event) => {
             const index = getIndex(item)
@@ -142,7 +144,7 @@ const addHTMLstructure = (item) => {
 
         const cancelBtn = document.createElement("button")
         cancelBtn.textContent = "cancel"
-        cancelBtn.classList.add("btn")
+        cancelBtn.classList.add("btn", "btn-red")
 
         cancelBtn.addEventListener("click", () => {
             const index = getIndex(item)
