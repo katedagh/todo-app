@@ -17,6 +17,26 @@ const getIndex = (todo) => {
             return index
 }
 
+const createCheckbox = (item) => {
+     const checkbox = document.createElement("input")
+        checkbox.type = "checkbox"
+        checkbox.checked = item.isCompleted
+
+        checkbox.addEventListener("change", () => {
+            const index = getIndex(item)
+            
+            if (checkbox.checked) {
+                toDoItems[index].isCompleted = true
+            } else {
+                toDoItems[index].isCompleted = false
+            }
+            saveToLocalStorage()
+            renderTask()
+
+        })
+        return checkbox
+}
+
 const addHTMLstructure = (item) => {
 
     if (item.isBeingEdited === false) {
@@ -27,27 +47,11 @@ const addHTMLstructure = (item) => {
         const leftSide = document.createElement("div")
         leftSide.classList.add("task-container-left")
 
-        const checkbox = document.createElement("input")
-        checkbox.type = "checkbox"
-        checkbox.checked = item.isCompleted
-
-        checkbox.addEventListener("change", () => {
-            const index = getIndex(item)
-            
-            if (checkbox.checked) {
-                toDoItems[index].isCompleted = true
-                task.classList.add("checked")
-            } else {
-                toDoItems[index].isCompleted = false
-                task.classList.remove("checked")
-            }
-            saveToLocalStorage()
-            renderTask()
-        })
+        const checkbox = createCheckbox(item)
 
         const task = document.createElement("p")
         task.textContent = item.toDo
-
+        
            if (checkbox.checked) {
                 task.classList.add("checked") }
             else {
@@ -97,24 +101,7 @@ const addHTMLstructure = (item) => {
         const leftSide = document.createElement("div")
         leftSide.classList.add("task-container-left")
 
-        const checkbox = document.createElement("input")
-        checkbox.type = "checkbox"
-        checkbox.checked = item.isCompleted
-       
-
-        checkbox.addEventListener("change", () => {
-            const index = getIndex(item)
-            
-            if (checkbox.checked) {
-                toDoItems[index].isCompleted = true
-                task.classList.add("checked")
-            } else {
-                toDoItems[index].isCompleted = false
-                task.classList.remove("checked")
-            }
-            saveToLocalStorage()
-            renderTask()
-        })
+        const checkbox = createCheckbox(item)
 
         const task = document.createElement("input")
        task.classList.add("edit-input")
