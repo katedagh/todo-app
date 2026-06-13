@@ -111,13 +111,11 @@ input[type="checkbox"]:hover {
 
 .edit-input {
     width: 100%;
-    background-color: var(--background-darker);
+    background-color: transparent;
     font-size: 1.2rem;
     outline: none;
     border: none;
-    border-radius: 50px;
-    padding-left: 15px;
-      font-family: "Cause", cursive;
+    font-family: "Cause", cursive;
 }
 
 .btn-red:hover {
@@ -134,5 +132,5 @@ input[type="checkbox"]:hover {
 }
 
 #lang-btn {
-    width: 100px;
+    width: 80px;
 }

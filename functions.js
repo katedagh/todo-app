@@ -159,6 +159,10 @@ const addHTMLstructure = (item) => {
         rightSide.appendChild(cancelBtn)
         toDoList.appendChild(container)
 
-        }
+        setTimeout(() => {
+            task.focus()
+            task.select() // označí celý text
+        }, 0)
 
+        }
     }
