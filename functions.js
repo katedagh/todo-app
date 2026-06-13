@@ -4,17 +4,23 @@ const saveToLocalStorage = () => {
 }
 
 const renderTask = () => {
-     toDoList.innerHTML = ""
-     toDoItems.forEach(item => { 
+    toDoList.innerHTML = ""
+    toDoItems.forEach(item => { 
          addHTMLstructure(item)  
      })
+    const todosLeft = toDoItems.filter(item => !item.isCompleted)
+    const todosCompleted = toDoItems.filter(item => item.isCompleted)
+    const statsParagraph = document.createElement("p")
+    statsParagraph.classList.add("stats")
+    statsParagraph.textContent = `Completed todos: ${todosCompleted.length}, todos left: ${todosLeft.length}`
+    toDoList.appendChild(statsParagraph)
 }
 
 const getIndex = (todo) => {
  const index = toDoItems.findIndex(
                 task => task.id === todo.id
             )
-            return index
+            return index //must return it and then save it to variable when using elsewhere
 }
 
 const createCheckbox = (item) => {
@@ -62,8 +68,8 @@ const addHTMLstructure = (item) => {
         rightSide.classList.add("task-container-right")
 
         const editBtn = document.createElement("button")
-        editBtn.textContent = "edit"
-        editBtn.classList.add("btn")
+        editBtn.textContent = "Edit"
+        editBtn.classList.add("btn", "btn-green")
 
         editBtn.addEventListener("click", () => {
             const index = getIndex(item)
@@ -73,8 +79,8 @@ const addHTMLstructure = (item) => {
         })
 
         const removeBtn = document.createElement("button")
-        removeBtn.textContent = "remove"
-        removeBtn.classList.add("btn")
+        removeBtn.textContent = "Remove"
+        removeBtn.classList.add("btn", "btn-red")
 
         removeBtn.addEventListener("click", event => {
             const index = getIndex(item)
@@ -90,7 +96,6 @@ const addHTMLstructure = (item) => {
         rightSide.appendChild(editBtn)
         rightSide.appendChild(removeBtn)
         toDoList.appendChild(container)
-
 
         
         } else if (item.isBeingEdited === true) {
@@ -118,7 +123,7 @@ const addHTMLstructure = (item) => {
         rightSide.classList.add("task-container-right")
 
         const saveBtn = document.createElement("button")
-        saveBtn.textContent = "save"
+        saveBtn.textContent = "Save"
         saveBtn.classList.add("btn", "btn-green")
 
         saveBtn.addEventListener("click", (event) => {
@@ -130,7 +135,7 @@ const addHTMLstructure = (item) => {
         })
 
         const cancelBtn = document.createElement("button")
-        cancelBtn.textContent = "cancel"
+        cancelBtn.textContent = "Cancel"
         cancelBtn.classList.add("btn", "btn-red")
 
         cancelBtn.addEventListener("click", () => {
@@ -146,6 +151,7 @@ const addHTMLstructure = (item) => {
         rightSide.appendChild(saveBtn)
         rightSide.appendChild(cancelBtn)
         toDoList.appendChild(container)
+
         }
 
     }

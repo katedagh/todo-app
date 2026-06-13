@@ -7,8 +7,8 @@
     --btn: #7c6884;
     --btn-hover: #615167;
     --btn-active: #ac8db8;
-    --btn-green:  #4a724e;
-    --btn-red: #74383e;
+    --btn-green:  #6f7c73;
+    --btn-red: #6a353b;
     --background: #e4cfed;
     --background-darker: #d0bbd8;
 }
@@ -126,4 +126,9 @@ input[type="checkbox"]:hover {
 
 .btn-green:hover {
     background-color: var(--btn-green);
+}
+
+.stats {
+    text-align: center;
+    margin-block: 20px;
 }

@@ -29,6 +29,7 @@ form.addEventListener("submit", event => {
         saveToLocalStorage()
         //addHTMLstructure(toDoItems[toDoItems.length - 1])
         renderTask()
+       
     }
 
     //clear input
