@@ -1,3 +1,9 @@
+let language = "cs"
+
+const heading = document.querySelector("#heading")
+const formInput = document.querySelector("#form-input")
+const formBtn = document.querySelector("#form-btn")
+changeLanguage()
 const form = document.querySelector("#todo-form")
 const toDoList = document.querySelector("#todo-list")
 
@@ -29,7 +35,6 @@ form.addEventListener("submit", event => {
         saveToLocalStorage()
         //addHTMLstructure(toDoItems[toDoItems.length - 1])
         renderTask()
-       
     }
 
     //clear input

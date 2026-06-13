@@ -12,7 +12,7 @@ const renderTask = () => {
     const todosCompleted = toDoItems.filter(item => item.isCompleted)
     const statsParagraph = document.createElement("p")
     statsParagraph.classList.add("stats")
-    statsParagraph.textContent = `Completed todos: ${todosCompleted.length}, todos left: ${todosLeft.length}`
+    statsParagraph.textContent = translations[language].completed + todosCompleted.length + translations[language].left + todosLeft.length
     toDoList.appendChild(statsParagraph)
 }
 
@@ -43,6 +43,12 @@ const createCheckbox = (item) => {
         return checkbox
 }
 
+const changeLanguage = () => {
+    heading.textContent = translations[language].title
+    formInput.placeholder = translations[language].input
+    formBtn.value = translations[language].add
+}
+
 const addHTMLstructure = (item) => {
 
     if (item.isBeingEdited === false) {
@@ -68,7 +74,7 @@ const addHTMLstructure = (item) => {
         rightSide.classList.add("task-container-right")
 
         const editBtn = document.createElement("button")
-        editBtn.textContent = "Edit"
+        editBtn.textContent = translations[language].edit
         editBtn.classList.add("btn", "btn-green")
 
         editBtn.addEventListener("click", () => {
@@ -79,7 +85,7 @@ const addHTMLstructure = (item) => {
         })
 
         const removeBtn = document.createElement("button")
-        removeBtn.textContent = "Remove"
+        removeBtn.textContent = translations[language].remove
         removeBtn.classList.add("btn", "btn-red")
 
         removeBtn.addEventListener("click", event => {
@@ -123,7 +129,7 @@ const addHTMLstructure = (item) => {
         rightSide.classList.add("task-container-right")
 
         const saveBtn = document.createElement("button")
-        saveBtn.textContent = "Save"
+        saveBtn.textContent = translations[language].save
         saveBtn.classList.add("btn", "btn-green")
 
         saveBtn.addEventListener("click", (event) => {
@@ -135,7 +141,7 @@ const addHTMLstructure = (item) => {
         })
 
         const cancelBtn = document.createElement("button")
-        cancelBtn.textContent = "Cancel"
+        cancelBtn.textContent = translations[language].cancel
         cancelBtn.classList.add("btn", "btn-red")
 
         cancelBtn.addEventListener("click", () => {
