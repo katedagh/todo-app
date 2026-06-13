@@ -1,11 +1,22 @@
-let language = "cs"
-
+let language =  localStorage.getItem("language") ||  "en"
+const langBtn = document.querySelector("#lang-btn")
 const heading = document.querySelector("#heading")
 const formInput = document.querySelector("#form-input")
 const formBtn = document.querySelector("#form-btn")
 changeLanguage()
 const form = document.querySelector("#todo-form")
 const toDoList = document.querySelector("#todo-list")
+
+langBtn.addEventListener("click", () => {
+    if (language === "en") {
+        language = "cs"
+    } else if (language === "cs") {
+        language = "en"
+    }
+    localStorage.setItem("language", language)
+    changeLanguage()
+    renderTask()
+})
 
 //create empty array or get data from local storage to render it in the next step
 let toDoItems =  JSON.parse(localStorage.getItem("items")) || []

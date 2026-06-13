@@ -132,3 +132,7 @@ input[type="checkbox"]:hover {
     text-align: center;
     margin-block: 20px;
 }
+
+#lang-btn {
+    width: 100px;
+}

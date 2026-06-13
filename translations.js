@@ -1,5 +1,6 @@
 const translations = {
     cs:{
+        button: "English",
         title: "Seznam úkolů",
         input: "Zde napište úkol",
         add: "Přidat úkol",
@@ -11,6 +12,7 @@ const translations = {
         completed: "Hotové úkoly: ",
     },
     en:{
+        button: "Čeština",
         title: "Todos list",
         input: "Type your todo",
         add: "Add to list",

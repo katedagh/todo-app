@@ -44,6 +44,7 @@ const createCheckbox = (item) => {
 }
 
 const changeLanguage = () => {
+    langBtn.textContent = translations[language].button
     heading.textContent = translations[language].title
     formInput.placeholder = translations[language].input
     formBtn.value = translations[language].add
